@@ -1,21 +1,16 @@
 def appearance(intervals: dict[str, list[int]]) -> int:
-    """
-    Алгоритм работает на 1 и 3 примере, со вторым не разобрался, думал нужны сортировки но нет.
-    """
     lesson = [item for item in range(intervals['lesson'][0], intervals['lesson'][1])]
-    # intervals['pupil'] = sorted(intervals['pupil'], key=lambda x : x)
     count_p = int(len(intervals['pupil']) / 2)
-    mas1 = ()
+    mas1 = set()
     for i in range(count_p):
         tmp = [item for item in range(intervals['pupil'][i * 2], intervals['pupil'][i*2 + 1])]
-        mas1 = mas1 + tuple(tmp)
+        mas1.update(tmp)
     mas1 = [item for item in mas1 if item in lesson]
-    # intervals['tutor'] = sorted(intervals['tutor'], key=lambda x : x)
     count_t = int(len(intervals['tutor']) / 2)
-    mas2 = ()
+    mas2 = set()
     for j in range(count_t):
         tmp = [item for item in range(intervals['tutor'][j*2], intervals['tutor'][j*2 + 1])]
-        mas2 = mas2 + tuple(tmp)
+        mas2.update(tmp)
     mas2 = [item for item in mas2 if item in lesson]
     output = len([item for item in mas1 if item in mas2])
     return output

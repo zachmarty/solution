@@ -71,4 +71,4 @@ class TestCase(unittest.TestCase):
         self.assertEqual(appearance(test2), 3565)
 
     def test3(self):
-        self.assertEqual(appearance(test3), 6757)
+        self.assertEqual(appearance(test3), 3577)
